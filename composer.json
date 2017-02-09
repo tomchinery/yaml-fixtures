@@ -1,0 +1,11 @@
+{
+    "name": "tomchinery/yaml-fixtures",
+    "autoload": {
+        "psr-4": {
+            "YAMLFixtures\\": "src/"
+        }
+    },
+    "require-dev": {
+        "phpspec/phpspec": "~2.0"
+    }
+}

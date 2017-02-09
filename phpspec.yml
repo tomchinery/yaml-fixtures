@@ -1,0 +1,4 @@
+suites:
+  library_suite:
+    namespace: YAMLFixtures\Tests
+    psr4_prefix: YAMLFixtures\Tests
