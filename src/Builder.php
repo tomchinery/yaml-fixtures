@@ -64,12 +64,7 @@ class Builder
     public function recursiveBuild($arr, $obj)
     {
         foreach ($arr as $key => $value) {
-            if (is_array($value)) {
-                $obj->$key = new \stdClass();
-                $this->recursiveBuild($arr, $obj);
-            } else {
-                $obj->$key = $value;
-            }
+            $obj->$key = $value;
         }
         return $obj;
     }
