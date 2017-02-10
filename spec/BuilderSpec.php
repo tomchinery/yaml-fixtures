@@ -36,13 +36,16 @@ class BuilderSpec extends ObjectBehavior
         $this->path->shouldBe('/home/tom/Projects/yaml-fixtures/fixtures/example.yml');
     }
 
-    function it_creates_base_class_object(BaseClass $baseClass)
+    function it_creates_base_class_object(Fixture $fixture)
     {
+        $this->beConstructedWith('example');
+        $this->build()->shouldReturnAnInstanceOf('\stdClass');
     }
 
     function it_adds_attributes_to_base_class_object(Fixture $fixture)
     {
         $this->beConstructedWith('example');
-        $this->build()->shouldReturnAnInstanceOf('YAMLFixtures\Fixture');
+        $baseClass = $this->build();
+        // can't test this as reflection has a console bomb
     }
 }

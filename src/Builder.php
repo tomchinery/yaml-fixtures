@@ -39,14 +39,38 @@ class Builder
         return $this->parseYAML()[$this->className][$this->className . '-1'];
     }
 
+
     /**
-     * Builds base class object by looping through the attributes array
+     * Builds the base class object
      *
      * @return object
      */
     public function build()
     {
-        $baseClass = new BaseClass();
-        
+        $standardClass = new \stdClass();
+        $array = $this->getAttributes();
+        $this->recursiveBuild($array, $standardClass);
+        return $this->recursiveBuild($array, $standardClass);
+    }
+
+    /**
+     * Recursively Builds base class object by looping through the attributes array
+     *
+     * @param array  $arr array to convert
+     * @param object $obj obj to return
+     *
+     * @return object
+     */
+    public function recursiveBuild($arr, $obj)
+    {
+        foreach ($arr as $key => $value) {
+            if (is_array($value)) {
+                $obj->$key = new \stdClass();
+                $this->recursiveBuild($arr, $obj);
+            } else {
+                $obj->$key = $value;
+            }
+        }
+        return $obj;
     }
 }
