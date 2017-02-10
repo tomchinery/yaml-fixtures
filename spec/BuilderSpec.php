@@ -2,7 +2,6 @@
 
 namespace spec\YAMLFixtures;
 
-use YAMLFixtures\Fixture;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
@@ -36,13 +35,13 @@ class BuilderSpec extends ObjectBehavior
         $this->path->shouldBe('/home/tom/Projects/yaml-fixtures/fixtures/example.yml');
     }
 
-    function it_creates_base_class_object(Fixture $fixture)
+    function it_creates_base_class_object()
     {
         $this->beConstructedWith('example');
         $this->build()->shouldReturnAnInstanceOf('\stdClass');
     }
 
-    function it_adds_attributes_to_base_class_object(Fixture $fixture)
+    function it_adds_attributes_to_base_class_object()
     {
         $this->beConstructedWith('example');
         $baseClass = $this->build();
