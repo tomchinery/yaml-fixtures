@@ -25,4 +25,14 @@ class FixturesSpec extends ObjectBehavior
 
         $this->generate($object, $generator);
     }
+
+    function it_returns_a_object_with_attributes()
+    {
+        $object = new \stdClass();
+        $object->name = "Test";
+        $object->id = 1;
+
+        $this::build('example')->shouldReturnAnInstanceOf('\stdClass');
+        $this::build('example')->shouldBeLike($object);
+    }
 }

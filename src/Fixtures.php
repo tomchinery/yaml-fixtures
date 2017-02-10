@@ -19,4 +19,17 @@ class Fixtures
         }
         return $fixtureGenerator->generate();
     }
+
+    /**
+     * Builds an object with attributes from the yaml
+     *
+     * @param string $className The name of the class you want to build
+     *
+     * @return object
+     */
+    public static function build($className)
+    {
+        $builder = new Builder($className);
+        return $builder->build();
+    }
 }
