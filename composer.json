@@ -10,6 +10,12 @@
         "phpspec/phpspec": "~2.0"
     },
     "require": {
-        "trappar/alice-generator": "^0.2.1"
+        "trappar/alice-generator": "^0.2.1",
+        "symfony/yaml": "^3.2"
+    },
+    "scripts": {
+      "generate": [
+        "@php src/generate_script.php"
+      ]
     }
 }
