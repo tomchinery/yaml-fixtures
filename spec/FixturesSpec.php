@@ -31,6 +31,8 @@ class FixturesSpec extends ObjectBehavior
         $object = new \stdClass();
         $object->name = "Test";
         $object->id = 1;
+        $object->array = array("cheese", "tomato", "lettuce");
+        $object->hash = array("id" => 12, "name" => "Toast");
 
         $this::build('example')->shouldReturnAnInstanceOf('\stdClass');
         $this::build('example')->shouldBeLike($object);

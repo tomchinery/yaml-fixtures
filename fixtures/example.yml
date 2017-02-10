@@ -2,3 +2,5 @@ example:
   example-1:
     name: Test
     id: 1
+    array: [cheese, tomato, lettuce]
+    hash: {id: 12, name: Toast}

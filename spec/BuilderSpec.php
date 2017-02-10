@@ -23,7 +23,9 @@ class BuilderSpec extends ObjectBehavior
     {
         $fixtureAttributes = array(
             "name" => "Test",
-            "id" => 1
+            "id" => 1,
+            "array" => array("cheese", "tomato", "lettuce"),
+            "hash" => array("id" => 12, "name" => "Toast")
         );
         $this->beConstructedWith('example');
         $this->getAttributes()->shouldReturn($fixtureAttributes);
