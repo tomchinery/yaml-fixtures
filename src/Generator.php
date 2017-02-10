@@ -8,33 +8,51 @@ use Trappar\AliceGenerator\FixtureGenerationContext;
 class Generator
 {
     /**
-     * Uses Alice Generator to Generate a YAML file from an Object
+     * Construct the class
      *
-     * @param object $object The object to parse
+     * @param object $object The object to parse to yaml
      *
      * @return true
      */
-    function generate($object)
+    function __construct($object)
     {
-        try {
-            $string = $this->objToYAMLString($object);
-        } catch {
-            throw new Exception('Unable to create YAML file');
+        $this->object = $object;
+    }
+
+    /**
+     * Uses Alice Generator to Generate a YAML file from an Object
+     *
+     * @return true
+     */
+    function generate()
+    {
+        if (file_put_contents($this->filePath(), $this->objToYAMLString())) {
+            return true;
+        } else {
+            return false;
         }
     }
 
     /**
      * Parse object to Yaml String
      *
-     * @param object $object The object to parse
+     * @return string
+     */
+    private function objToYAMLString()
+    {
+        return FixtureGeneratorBuilder::create()->build()->generateYaml(
+            $this->object,
+            FixtureGenerationContext::create()->setMaximumRecursion(0)
+        );
+    }
+
+    /**
+     * Generate file path
      *
      * @return string
      */
-    private function objToYAMLString($object)
+    private function filePath()
     {
-        return FixtureGeneratorBuilder::create()->build()->generateYaml(
-            $object,
-            FixtureGenerationContext::create()->setMaximumRecursion(0)
-        );
+        return realpath('../../../') . '/fixtures/' . get_class($this->object) . '.yml';
     }
 }

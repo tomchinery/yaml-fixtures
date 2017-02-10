@@ -8,8 +8,9 @@ use Prophecy\Argument;
 
 class GeneratorSpec extends ObjectBehavior
 {
-    function it_is_initializable()
+    function it_is_initializable($object)
     {
+        $this->beConstructedWith($object);
         $this->shouldHaveType(Generator::class);
     }
 }
