@@ -18,7 +18,7 @@ class Generator
     {
         try {
             $string = $this->objToYAMLString($object);
-        } catch () {
+        } catch {
             throw new Exception('Unable to create YAML file');
         }
     }

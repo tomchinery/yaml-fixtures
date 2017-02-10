@@ -1,8 +1,8 @@
 {
     "name": "tomchinery/yaml-fixtures",
     "autoload": {
-        "psr-0": {
-            "": "src/"
+        "psr-4": {
+            "YAMLFixtures\\": "src/"
         }
     },
     "require-dev": {
