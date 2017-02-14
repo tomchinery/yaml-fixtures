@@ -40,7 +40,7 @@ class BuilderSpec extends ObjectBehavior
     function it_creates_base_class_object()
     {
         $this->beConstructedWith('example');
-        $this->build()->shouldReturnAnInstanceOf('\stdClass');
+        $this->build()->shouldReturnAnInstanceOf('YAMLFixtures\BaseClass');
     }
 
     function it_adds_attributes_to_base_class_object()
