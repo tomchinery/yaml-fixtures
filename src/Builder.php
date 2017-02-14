@@ -47,7 +47,7 @@ class Builder
      */
     public function build()
     {
-        $standardClass = new \stdClass();
+        $standardClass = new BaseClass();
         $array = $this->getAttributes();
         $this->recursiveBuild($array, $standardClass);
         return $this->recursiveBuild($array, $standardClass);
