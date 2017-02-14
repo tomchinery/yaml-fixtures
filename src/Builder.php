@@ -64,7 +64,7 @@ class Builder
     public function recursiveBuild($arr, $obj)
     {
         foreach ($arr as $key => $value) {
-            $obj->$key = $value;
+            $obj->addProperty($key, $value);
         }
         return $obj;
     }
